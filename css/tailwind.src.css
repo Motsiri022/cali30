@@ -1,0 +1,4 @@
+/* Input for the Tailwind build ("npm run build:css" writes css/tailwind.css). Do not edit css/tailwind.css by hand. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

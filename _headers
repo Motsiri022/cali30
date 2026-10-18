@@ -1,0 +1,9 @@
+# Security headers for static hosts that read a "_headers" file (Netlify, Cloudflare Pages).
+# A <meta> CSP cannot set frame-ancestors, so this file adds it. GitHub Pages cannot set headers: see docs/SECURITY.md.
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cache-Control: no-cache

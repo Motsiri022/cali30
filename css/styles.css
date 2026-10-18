@@ -1,0 +1,34 @@
+/* Calis30 – theme tokens and shared component styles (layout utilities come from Tailwind CDN) */
+:root { --font-d: 'Barlow Condensed','Arial Narrow',Impact,sans-serif; --font-b: Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; --accent:#bff368; --accent-ink:#14210a; }
+/* Overview + other pages: blue-teal "slate" theme.  Workout activity screen: near-black "carbon" theme. */
+html[data-theme="slate"]  { --bg:#0b1820; --panel:#13262f; --panel2:#18303a; --line:#264451; --text:#e8f1f4; --muted:#87a1ac; --hl:#233f33; }
+html[data-theme="carbon"] { --bg:#0a0c0a; --panel:#131712; --panel2:#1a1f19; --line:#272d25; --text:#eef2ea; --muted:#8e9887; --hl:#243320; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-b); }
+html[data-theme="slate"] body { background: radial-gradient(1200px 600px at 20% -10%, #14303b 0%, var(--bg) 60%); }
+.display { font-family: var(--font-d); font-weight: 700; text-transform: uppercase; letter-spacing: .01em; line-height: .95; }
+.panel   { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; }
+.eyebrow { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.muted   { color: var(--muted); }
+.accent  { color: var(--accent); }
+.accent-bg { background: var(--accent); }
+.btn { min-height: 48px; min-width: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; border-radius: 12px; font-weight: 600; font-size: 14px; transition: .15s; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { filter: brightness(1.07); }
+.btn-ghost { border: 1px solid var(--line); color: var(--text); }
+.btn-ghost:hover:not(:disabled) { border-color: var(--accent); }
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+.nav-link { min-height: 48px; display: flex; align-items: center; gap: 12px; padding: 0 14px; border-radius: 10px; font-size: 14px; color: var(--muted); transition: .15s; }
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,.04); }
+.nav-link.active { color: var(--text); background: var(--hl); }
+.nav-link.active svg { color: var(--accent); }
+.card-next { border-color: var(--accent) !important; background: var(--hl) !important; }
+@keyframes pulse-soft { 0%,100% { opacity: 1 } 50% { opacity: .55 } }
+.pulse-soft { animation: pulse-soft 1s ease-in-out infinite; }
+::-webkit-scrollbar { width: 8px; height: 8px } ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px }
+
+/* ---- additions: mobile screens, accessibility ---- */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+input[type="search"]::-webkit-search-cancel-button { filter: invert(.7); }
+@media (prefers-reduced-motion: reduce) { .pulse-soft { animation: none; } * { transition: none !important; } }
